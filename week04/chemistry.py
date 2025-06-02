@@ -1,3 +1,7 @@
+# Creativity Enhancement:
+# The program includes a small dictionary of known chemical formulas and their
+# common names. If the user enters a formula found in this dictionary,
+# its common name is printed.
 
 from formula import parse_formula
 
@@ -140,10 +144,23 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
 
     return molar_mass
 
+KNOWN_FORMULAS_AND_NAMES = {
+  "H2O": "Water",
+  "CH4": "Methane",
+  "NH3": "Ammonia",
+  "CO2": "Carbon Dioxide",
+  "NaCl": "Sodium Chloride (Table Salt)",
+  "C6H12O6": "Glucose",
+  "O2": "Oxygen Gas",
+  "H2SO4": "Sulfuric Acid"
+}
 
 def main():
   chemical_formula = input("Enter the molecular formula of the sample: ")
   mass_in_grams = float(input("Enter the mass in grams of the sample: "))
+
+  if chemical_formula in KNOWN_FORMULAS_AND_NAMES:
+    print(f"Common name: {KNOWN_FORMULAS_AND_NAMES[chemical_formula]}")
 
   periodic_table = make_periodic_table()
 
